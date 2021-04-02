@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Настройки</title>
+  <style type="text/css">
+
+    .settings{
+      align-items: center;
+      font-size: 30px;
+      text-align: center;
+      font-style: italic;
+      margin: 20px auto;
+      width: 470px;
+    }
+    #button{
+      font-size: 30px;
+      background: white;
+      font-style: italic;
+      border-radius: 12px;
+      border: 5px blue;
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.432), 0 5px 8px rgba(12, 6, 6, 0.486);
+    }
+  </style>
+</head>
+<body>
+<div class = "settings">
+  <p>Время начала торгов: <input type="time"  required [(ngModel)]="settings.tm_begin"></p>
+  <p>Время окончания торгов: <input type="time" required [(ngModel)]="settings.tmstop"></p>
+  <p>Интервал обновления акций: <input type="time" required [(ngModel)]="settings.tmout"></p>
+  <button id="button" (click)="edit()" >Изменить</button>
+</div>
+</body>
+</html>

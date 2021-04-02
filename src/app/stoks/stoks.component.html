@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Акции</title>
+  <style type="text/css">
+
+    .stocks{
+      margin-left: 34%;
+    }
+    .stock_card{
+      text-align: left;
+      font-style: italic;
+      background: rgb(235, 238, 241);
+      border: 5px double darkblue;
+      padding: 10px 20px 10px 20px;
+      margin: 20px auto;
+      width: 470px;
+
+    }
+    #add_stock{
+      background: rgb(235, 238, 241);
+      font-style: italic;
+      border: 3px dotted darkblue;
+      padding: 10px 20px 10px 20px;
+      margin: 20px auto;
+      width: 210px;
+    }
+    #middle{
+      min-width: 20px;
+    }
+    #buttons{
+      text-align: right;
+    }
+    #button{
+      background: white;
+      height: 25px;
+      border-radius: 12px;
+      border: 5px blue;
+      margin-right: 5px;
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.432), 0 5px 8px rgba(12, 6, 6, 0.486);
+    }
+  </style>
+</head>
+<body>
+<div class = "stocks">
+  <tr>
+    <th>
+      <div *ngFor="let stock of stocks">
+        <div class  = "stock_card" id = "{{stock.id}}">
+          <p>Название компании: <input size = "35" [(ngModel)]="stock.name"></p>
+          <p>Закон распределения: <input size = "34" [(ngModel)]="stock.distribution"></p>
+          <p>Максимальное значение изменения: <input type="number" min="0" [(ngModel)]="stock.max"></p>
+          <p>Количество акций: <input type="number" min="0" [(ngModel)]="stock.count"></p>
+          <p>Стоимость акции: <input type="number" min="0" [(ngModel)]="stock.price"></p>
+          <div id="buttons">
+          <button id="button"  (click)="edit()" >Изменить</button>
+          <button id="button" (click)="delete(stock.id)" >Удалить</button>
+          </div>
+        </div>
+      </div>
+    </th>
+    <th>
+      <div id = "middle"></div>
+    </th>
+    <th>
+      <div id = "add_stock">
+        <p>Название компании: <input [(ngModel)]="name"></p>
+        <p>Закон распределения: <input [(ngModel)]="distribution"></p>
+        <p >Максимальное значение изменения: <input id = "number1" type="number" min="0" [(ngModel)]="max"></p>
+        <p >Количество акций: <input id = "number2" type="number" min="0" [(ngModel)]="count"></p>
+        <p >Стоимость акции: <input id = "number3" type="number" min="0" [(ngModel)]="price"></p>
+        <button id="button"  (click)="add()">Добавить новую акцию</button>
+      </div>
+    </th>
+  </tr>
+</div>
+</body>
+</html>

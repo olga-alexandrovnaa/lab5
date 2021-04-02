@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Brokers</title>
+  <style type="text/css">
+
+    .brokers{
+      margin-left: 42%;
+    }
+    .broker_card{
+      text-align: left;
+      font-style: italic;
+      background: rgb(235, 238, 241);
+      border: 5px double darkblue;
+      padding: 10px 20px 10px 20px;
+      margin: 20px auto;
+      width: 200px;
+
+    }
+    #add_broker{
+      background: rgb(235, 238, 241);
+      font-style: italic;
+      border: 3px dotted darkblue;
+      padding: 10px 20px 10px 20px;
+      margin: 20px auto;
+      width: 210px;
+    }
+    #middle{
+      min-width: 40px;
+    }
+    #buttons{
+      text-align: right;
+    }
+    #button{
+      background: white;
+      height: 25px;
+      border-radius: 12px;
+      border: 5px blue;
+      margin-right: 5px;
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.432), 0 5px 8px rgba(12, 6, 6, 0.486);
+    }
+  </style>
+</head>
+<body>
+<div class = "brokers">
+  <tr>
+    <th>
+    <div *ngFor="let broker of brokers">
+      <div class  = "broker_card" id = "{{broker.ID}}">
+        <p>Ник брокера: {{broker.name}}</p>
+        <p>Запас денежных средств: <input type="number"  min="0" [(ngModel)]="broker.money"></p>
+        <div id = "buttons">
+          <button id="button"  (click)="edit()" >Изменить</button>
+          <button id="button"  (click)="delete(broker.ID)" >Удалить</button>
+      </div>
+      </div>
+    </div>
+    </th>
+    <th><div id = "middle"></div></th>
+    <th>
+      <div id = "add_broker">
+        <p>Ник брокера: <input required [(ngModel)]="name"></p>
+        <p>Запас денежных средств: <input type="number" min="0" required [(ngModel)]="money"></p>
+        <div id = "buttons">
+          <button id="button" (click)="add()">Добавить брокера</button>
+        </div>
+      </div>
+    </th>
+  </tr>
+</div>
+</body>
+</html>
